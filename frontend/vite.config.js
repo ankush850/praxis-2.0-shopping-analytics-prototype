@@ -1,18 +1,22 @@
-import { defineConfig as cfg } from "vite";
-import reactPlugin from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
-const backend = "http://127.0.0.1:8000";
+function buildProxy(url) {
+  return {
+    "/api": {
+      target: url,
+      changeOrigin: true
+    }
+  };
+}
 
-const proxyConfig = {
-  "/api": Object.freeze({
-    target: backend,
-    changeOrigin: true
-  })
-};
+function buildServer() {
+  return {
+    proxy: buildProxy("http://127.0.0.1:8000")
+  };
+}
 
-const serverConfig = Object.assign({}, { proxy: proxyConfig });
-
-export default cfg(() => ({
-  plugins: [].concat(reactPlugin()),
-  server: serverConfig
-}));
+export default defineConfig({
+  plugins: [react()],
+  server: buildServer()
+});
