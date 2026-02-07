@@ -70,20 +70,44 @@ graph TD
 ## 📂 Project Structure
 
 ```bash
-unstop/
 ├── backend/
 │   ├── services/           # 🧠 ML & Data Logic
-│   │   ├── segmentation.py # RFM & K-Means Logic
 │   │   ├── affinity.py     # Apriori / Association Rules
-│   │   └── preprocessing.py# Data cleaning pipelines
-│   ├── database.py         # 🔌 DB Connection
-│   ├── models.py           # 🗄️ SQL Models (Customer, Purchase, etc.)
-│   ├── main.py             # 🚦 API Routes
-│   └── init_db.py          # ⚙️ Seeding script
+│   │   ├── preprocessing.py# Data cleaning pipelines
+│   │   ├── segmentation.py # RFM & K-Means Logic
+│   │   └── __init__.py
+│   ├── database.py         # 🔌 DB Connection & Session
+│   ├── init_db.py          # ⚙️ Database Seeding script
+│   ├── main.py             # 🚦 FastAPI Routes
+│   ├── models.py           # 🗄️ SQLAlchemy Models
+│   └── __init__.py
 ├── frontend/
+│   ├── public/             # 🌐 Static Assets
+│   │   └── vite.svg
 │   ├── src/
-│   │   ├── components/     # 🎨 UI Widgets (Dashboard, Charts)
-│   │   └── App.jsx         # 🧭 Navigation & Layout
+│   │   ├── assets/         # 🎨 Image Assets
+│   │   │   └── react.svg
+│   │   ├── components/     # 🧩 UI Components
+│   │   │   ├── AffinityAnalysis.css
+│   │   │   ├── AffinityAnalysis.jsx
+│   │   │   ├── CustomerLookup.css
+│   │   │   ├── CustomerLookup.jsx
+│   │   │   ├── Dashboard.css
+│   │   │   └── Dashboard.jsx
+│   │   ├── App.css
+│   │   ├── App.jsx         # 🧭 Main Application logic
+│   │   ├── index.css
+│   │   └── main.jsx        # 🚀 Frontend Entry Point
+│   ├── index.css
+│   ├── index.html
+│   ├── index.js
+│   ├── package-lock.json
+│   ├── package.json        # 📦 Frontend Dependencies
+│   └── vite.config.js      # 🛠️ Vite Configuration
+├── detailed_analysis.py    # 📊 Detailed ML Analysis Script
+├── requirements.txt        # 🐍 Backend Dependencies
+├── shopping_analysis.db    # 🗄️ SQLite Database
+├── shopping_trends.csv     # 📁 Raw Dataset
 └── README.md
 ```
 
