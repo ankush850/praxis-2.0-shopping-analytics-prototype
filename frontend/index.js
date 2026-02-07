@@ -1,29 +1,38 @@
-/**
- * Global ShopperAI Initialization
- * Handled outside the React lifecycle for professional metrics and monitoring.
- */
+(function () {
+  const boot = () => {
+    const banner =
+      "%c ShopperAI - Behavioral Analysis Platform initialized ";
+    const style =
+      "background: #4f46e5; color: #fff; padding: 4px; border-radius: 4px; font-weight: bold;";
+    console.log(banner, style);
 
-(function initShopperAI() {
-  console.log("%c ShopperAI - Behavioral Analysis Platform initialized ", "background: #4f46e5; color: #fff; padding: 4px; border-radius: 4px; font-weight: bold;");
-  
-  // Professional environment check
-  const isProduction = window.location.hostname !== 'localhost';
-  if (isProduction) {
-    console.debug("Running in production mode. Performance monitoring enabled.");
-  }
+    const host = window.location.hostname;
+    const prodMode = host !== "localhost";
+    if (prodMode) {
+      console.debug(
+        "Running in production mode. Performance monitoring enabled."
+      );
+    }
 
-  // Handle global resize events for chart responsiveness
-  window.addEventListener('resize', () => {
-    // Throttled resize handler if needed
-  });
+    const onResize = function () {};
+    window.addEventListener("resize", onResize);
 
-  // Smooth scroll behavior for professional navigation
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
+    const anchors = Array.prototype.slice.call(
+      document.querySelectorAll('a[href^="#"]')
+    );
+
+    for (let i = 0; i < anchors.length; i++) {
+      const el = anchors[i];
+      el.addEventListener("click", function (evt) {
+        evt.preventDefault();
+        const target = this.getAttribute("href");
+        const node = document.querySelector(target);
+        if (node) {
+          node.scrollIntoView({ behavior: "smooth" });
+        }
       });
-    });
-  });
+    }
+  };
+
+  boot();
 })();
