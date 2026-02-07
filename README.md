@@ -47,7 +47,26 @@ Discover what products or traits go together using the **Apriori Algorithm**.
 | **Charts** | **Recharts** | Responsive, composable React charts |
 
 ---
+## Architecture Diagram
 
+```mermaid
+graph TD
+    subgraph "Frontend Layer"
+        FE[Frontend React<br/>- Dashboards & Visual UI<br/>- Fetches from Backend]
+    end
+    
+    subgraph "Backend Layer"
+        BE[Backend API Server<br/>- Analytics endpoints<br/>- Business logic]
+    end
+    
+    subgraph "Data Layer"
+        DB[SQLite Database<br/>- customers<br/>- transactions<br/>- products]
+    end
+    
+    FE -- REST API --> BE
+    BE -- "Python ORM<br/>(SQLAlchemy)" --> DB
+    BE -- "Database Queries" --> DB
+ ```
 ## 📂 Project Structure
 
 ```bash
