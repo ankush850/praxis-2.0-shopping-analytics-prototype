@@ -3,46 +3,59 @@
 }
 
 .lookup-container {
+  margin-left: auto;
+  margin-right: auto;
   max-width: 800px;
-  margin: 0 auto;
 }
 
 .search-panel {
-  padding: 32px;
-  margin-bottom: 32px;
   text-align: center;
+  margin-bottom: 32px;
+  padding: 32px;
 }
 
 .profile-card {
   padding: 0;
   overflow: hidden;
-  animation: slideUp 0.4s ease-out;
+  animation-name: slideUp;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-out;
 }
 
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .profile-header {
-  background: linear-gradient(135deg, var(--primary-color) 0%, #4338ca 100%);
-  padding: 40px;
-  color: white;
   display: flex;
   align-items: center;
-  gap: 24px;
+  column-gap: 24px;
+  padding: 40px;
+  color: #ffffff;
+  background-image: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    #4338ca 100%
+  );
 }
 
 .avatar-circle {
-  width: 80px;
-  height: 80px;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
   font-size: 2rem;
   font-weight: 700;
+  background-color: rgba(255, 255, 255, 0.2);
   border: 2px solid rgba(255, 255, 255, 0.4);
 }
 
@@ -53,27 +66,28 @@
 }
 
 .profile-info p {
-  margin: 4px 0 0;
-  opacity: 0.9;
+  margin-top: 4px;
+  margin-bottom: 0;
   font-size: 0.875rem;
+  opacity: 0.9;
 }
 
 .profile-details {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: 32px;
+  grid-template-columns: repeat(2, 1fr);
   gap: 32px;
+  padding: 32px;
 }
 
 .detail-section h4 {
-  margin: 0 0 16px 0;
+  margin: 0 0 16px;
+  padding-bottom: 8px;
   font-size: 0.75rem;
   font-weight: 600;
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   border-bottom: 1px solid var(--border-color);
-  padding-bottom: 8px;
 }
 
 .detail-item {
@@ -93,17 +107,17 @@
 }
 
 .score-badge {
-  background-color: #fef3c7;
-  color: #92400e;
   padding: 4px 12px;
   border-radius: 6px;
   font-weight: 700;
+  background-color: #fef3c7;
+  color: #92400e;
 }
 
 .segment-badge {
-  background-color: #e0e7ff;
-  color: #3730a3;
   padding: 4px 12px;
   border-radius: 6px;
   font-weight: 700;
+  background-color: #e0e7ff;
+  color: #3730a3;
 }
